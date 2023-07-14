@@ -1,6 +1,6 @@
 #include <stdio.h>
 /*
- * main my comment
+ * main - prints "my comment"
  * Return: 0 (pass)
  */
 int main(void)
