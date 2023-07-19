@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "main.h"
 /**
  * add - Adds two values
  * @n1: The first number to be computed
