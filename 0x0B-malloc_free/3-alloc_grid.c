@@ -1,48 +1,39 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-/**
- * *str_concat - concatenates two strings
- * @s1: first string
- * @s2: second string
- * Return: pointer to new space in memory or null
- **/
-char *str_concat(char *s1, char *s2)
-{
-	int i, j, k, e, coun;
-	int coun1 = 0;
-	int coun2 = 0;
-	char *q;
+#include <limits.h>
 
-	if (s1 == NULL)
-	{
-		s1 = "";
-	}
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
-	for (i = 0; s1[i] != '\0'; i++)
-	{
-		coun1 = coun1 + 1;
-	}
-	for (j = 0; s2[j] != '\0'; j++)
-	{
-		coun2 = coun2 + 1;
-	}
-	coun = coun1 + coun2;
-	q = malloc(sizeof(char) * coun + 1);
-	if (q == NULL)
-	{
+/**
+ * alloc_grid - returns a pointe rot a newly created 2D int grid
+ * @width: width of grid
+ * @height: height of grid
+ * Return: pointer to the grid
+ */
+
+int **alloc_grid(int width, int height)
+{
+	int i, j, k, l;
+	int **grid;
+
+	if (width <= 0 || height <= 0)
 		return (NULL);
-	}
-	for (k = 0; s1[k] != '\0'; k++)
+	grid = malloc(height * sizeof(int *));
+	if (grid == NULL)
+		return (NULL);
+	for (i = 0; i < height; i++)
 	{
-		q[k] = s1[k];
+		grid[i] = malloc(width * sizeof(int));
+		if (grid[i] == NULL)
+		{
+			for (l = 0; l < i; l++)
+				free(grid[l]);
+			free(grid);
+			return (NULL);
+		}
 	}
-	for (k = k, e = 0; s2[e] != '\0'; e++, k++)
+	for (j = 0; j < height; j++)
 	{
-		q[k] = s2[e];
+		for (k = 0; k < width; k++)
+			grid[j][k] = 0;
 	}
-	q[k] = '\0';
-	return (q);
+	return (grid);
 }
