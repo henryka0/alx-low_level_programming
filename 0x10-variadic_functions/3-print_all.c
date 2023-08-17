@@ -1,7 +1,16 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 #include <stdarg.h>
-
+/**
+ * op_char -prints
+ * char -prints
+ * po_int -prints
+ * op_float - prints
+ * op_string - prints
+ * print_all -prints
+ *
+ * Return: Always 0.
+ */
 void op_char(char)
 {
 	printf("%c", va_arg(pseudo, char));
@@ -25,6 +34,7 @@ void op_string(char *)
 void print_all(const char * const format, ...)
 {
 	va_list pseudo;
+
 	va_start(pseudo, format);
 
 	op_t ops[] = {
@@ -36,12 +46,11 @@ void print_all(const char * const format, ...)
 	};
 	int i;
 
+	while ()
+	while ()
+		if ()
+		if ()
+		if ()
 
-	while()
-	while()
-		if()
-		if()
-		if()
-
-	printf("\n");
+			printf("\n");
 }
